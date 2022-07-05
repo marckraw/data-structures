@@ -9,5 +9,11 @@ data.forEach(item => {
 })
 
 
-console.log(bst)
+const result = bst.preOrderTraverseToArray()
+const resultInOrder = bst.inOrderTraverseToArray()
+const resultPostOrder = bst.postOrderTraverseToArray()
+
+console.log(result)
+console.log(resultInOrder)
+console.log(resultPostOrder)
 

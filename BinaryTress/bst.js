@@ -39,4 +39,85 @@ export class BST {
       }
     }
   }
+
+  search(data) {
+    let currentNode = this._root
+
+    while(currentNode) {
+      if(currentNode.data === data) {
+        return true
+      }
+
+      if(data > currentNode.data) {
+        currentNode = currentNode.right
+      } else {
+        currentNode = currentNode.left
+      }
+    }
+
+    return false
+  }
+
+  preOrderTraverseToArray() {
+    const output = []
+
+    const preOrderTraverse = (currentNode) => {
+      if(currentNode === null) {
+        return
+      }
+
+      output.push(currentNode.data)
+
+      preOrderTraverse(currentNode.left)
+
+      preOrderTraverse(currentNode.right)
+
+    }
+
+    preOrderTraverse(this._root)
+
+    return output
+  }
+
+  inOrderTraverseToArray() {
+    const output = []
+
+    const inOrderTraverse = (currentNode) => {
+      if(currentNode === null) {
+        return
+      }
+
+      inOrderTraverse(currentNode.left)
+
+      output.push(currentNode.data)
+
+      inOrderTraverse(currentNode.right)
+
+    }
+
+    inOrderTraverse(this._root)
+
+    return output
+  }
+
+  postOrderTraverseToArray() {
+    const output = []
+
+    const postOrderTraverse = (currentNode) => {
+      if(currentNode === null) {
+        return
+      }
+
+      postOrderTraverse(currentNode.left)
+
+      postOrderTraverse(currentNode.right)
+
+      output.push(currentNode.data)
+
+    }
+
+    postOrderTraverse(this._root)
+
+    return output
+  }
 }
